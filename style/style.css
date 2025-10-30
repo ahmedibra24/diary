@@ -1,0 +1,306 @@
+:root {
+  font-size: 16px;
+  --mainColor: #113343;
+  --white: #ffffff;
+  --green: #328677;
+  --darkOrange: #d95032;
+  --orange: #f35a39;
+  --card: #F3F4F5;
+  --container-width: 75%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  box-sizing: border-box;
+
+  color: var(--mainColor);
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  overflow-x: hidden;
+  background-color: var(--white);
+  position: relative;
+}
+a {
+  text-decoration: none;
+  color: var(--mainColor);
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+
+/*  ---------------------------------  header -------------------------------*/
+nav {
+  background-color: var(--mainColor);
+  width: 100%;
+  height: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin-bottom: 2rem;
+}
+nav .navContainer {
+  width: var(--container-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 0.5em;
+}
+/*  ------------  logo -----------*/
+nav .navContainer .logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+nav .logo {
+  width: 3rem;
+  height: 2.5rem;
+}
+nav .navContainer .logoContainer p {
+  color: var(--white);
+}
+/*  ------------  button -----------*/
+.btnContainer {
+  width: 8rem;
+  height: 2.6rem;
+  background-color: var(--orange);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.06rem;
+  cursor: pointer;
+  padding-top: 0.6em;
+}
+ .btnContainer p {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+
+}
+nav .navContainer .btnContainer figure {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.btnContainer:hover {
+  background-color: var(--darkOrange);
+}
+
+/*  ---------------------------------  main -------------------------------*/
+
+main {
+  width: var(--container-width);
+  margin: 4rem auto;
+  /* margin-top: 4.5rem; */
+}
+
+main h1 {
+  margin: 0.3em 0;
+  padding-top: 0.67em;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  letter-spacing: 0.25em;
+    text-align: center;
+
+}
+main::before,
+main::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1rem;
+    bottom: -1rem;
+    width: 10rem;
+    background-image: url(../images/icons/bg-lines.svg);
+    background-size: cover;
+    background-position: right center;
+    z-index: -1;
+    opacity: 0.1;
+    height: 100%;
+}
+
+main::before {
+    left: 0;
+}
+main::after {
+    transform: scaleX(-1);
+    right: 0;
+}
+
+/* ------------------ cards --------------- */
+
+main .cardsContainer {
+  width: 100%;
+  height: 2;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .cardsContainer .card {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: var(--card);
+}
+main .cardsContainer .card .card__image {
+  border-radius: 0.5rem;
+  object-fit: cover;
+  min-height: 100%;
+  box-shadow: 0.25rem 0rem 0.5rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+main .cardsContainer .card .card-body {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+main .cardsContainer .card .card-body h5 {
+  color: var(--green);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+main .cardsContainer .card .card-body p {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  text-align: justify;
+}
+/*  ------------- pagination ---------------  */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  color: var(--mainColor);
+}
+.pagination .page-item .page-link {
+  cursor: pointer;
+  color: var(--green);
+}
+.pagination .page-item .page-link:hover {
+  color: var(--white);
+  background-color: var(--green);
+  font-weight: bold;
+}
+.pagination .page-item .page-link.active {
+  color: var(--white);
+  background-color: var(--green);
+  font-weight: bold;
+}
+/*  ---------------------------------  footer -------------------------------*/
+footer {
+  
+
+  width: 100%;
+  height: 20rem;
+  background-color: var(--mainColor);
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+footer .footerContainer {
+  width: var(--container-width);
+  margin: 1em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footerContainer .footer-text {
+  width: 30%;
+}
+footer .footerContainer .footer-text h5 {
+  color: var(--white);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+footer .footerContainer .footer-text p {
+  color: #8ED8A9;
+  font-size: 0.9rem;
+  text-align: justify;
+  word-spacing: .1em;
+  
+  
+}
+footer .footerContainer figure {
+  width: 13rem;
+}
+footer hr {
+  width: 10rem;
+  border: 1.6px solid var(--card);
+  margin: 1em auto;
+
+}
+/* ----------------------------------- responsive design -------------------------------- */
+@media screen and (min-width: 576px) {
+:root {
+  font-size: 14px;
+  --container-width: 90%;
+}
+}
+@media screen and (min-width: 768px) {
+:root {
+  font-size: 14px;
+  --container-width: 80%;
+}
+}
+@media screen and (min-width: 992px) {
+:root {
+  font-size: 16px;
+  --container-width: 75%;
+}
+}
+@media screen and (min-width: 1200px) {
+:root {
+  font-size: 18px;
+  --container-width: 75%;
+}
+}
+@media screen and (min-width: 1600px) {
+:root {
+  font-size: 18px;
+  --container-width: 65%;
+}
+
+}
+@media screen and (max-width: 768px) {
+    footer{
+    height: auto;
+    }
+    footer .footerContainer .footer-text {
+    text-align: center;
+    width: 90%;
+    }
+    footer .footerContainer {
+    flex-direction: column;
+    }
+
+}
+
+/*  ------------------------------------------------  form ----------------------------------------------*/
+
+main form .btnContainer figure {
+  width: 1.2rem;
+}
+
+
+main form .form-control {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--mainColor);
+  border-radius: 0.5rem;
+  background-color: var(--card);
+}
+

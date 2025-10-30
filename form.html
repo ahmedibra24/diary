@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Diary</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="navContainer">
+          <a href="/index.html" class="logoContainer">
+            <figure class="logo">
+              <img src="images/icons/logo.svg" alt="" />
+            </figure>
+            <p>PHP Diary</p>
+          </a>
+          <a href="/form.html" class="btnContainer">
+            <figure>
+              <img src="images/icons/plus.svg" alt="plus icon" />
+            </figure>
+            <p>New entry</p>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1>New Entry</h1>
+      <form
+        action="submit_entry.php"
+        method="POST"
+        enctype="multipart/form-data"
+        class="entryForm"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Date</label>
+          <input
+            class="form-control"
+            type="date"
+            id="image"
+            name="image"
+            accept="image/*"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Message</label>
+          <textarea
+            class="form-control"
+            id="content"
+            name="content"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btnContainer" >
+            <figure>
+                <img src="images/icons/send.svg" alt="save icon" />
+            </figure>
+            <p>Save</p>
+        </button>
+      </form>
+    </main>
+    <footer>
+      <div class="footerContainer">
+        <div class="footer-text">
+          <h5>PHP diary project</h5>
+          <p>
+            This PHP diary project allows users to systematically document and
+            reflect on their learning journey, enhancing retention and providing
+            valuable insights into their personal growth and development.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="images/icons/code-with-fawzy-high-resolution-logo-transparent.png"
+            alt="programmer logo"
+          />
+        </figure>
+      </div>
+      <hr />
+    </footer>
+  </body>
+</html>
