@@ -22,7 +22,7 @@ body {
     "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   overflow-x: hidden;
-  background-color: var(--white);
+  background-color: red;
   position: relative;
 }
 a {
@@ -233,7 +233,7 @@ footer .footerContainer .footer-text p {
   
   
 }
-footer .footerContainer figure {
+footer .footerContainer a {
   width: 13rem;
 }
 footer hr {
