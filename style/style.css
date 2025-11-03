@@ -5,7 +5,7 @@
   --green: #328677;
   --darkOrange: #d95032;
   --orange: #f35a39;
-  --card: #F3F4F5;
+  --card: #f3f4f5;
   --container-width: 75%;
 }
 * {
@@ -22,7 +22,7 @@ body {
     "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   overflow-x: hidden;
-  background-color:var(--white);
+  background-color: var(--white);
   position: relative;
 }
 a {
@@ -82,12 +82,11 @@ nav .navContainer .logoContainer p {
   cursor: pointer;
   padding-top: 0.6em;
 }
- .btnContainer p {
+.btnContainer p {
   color: var(--white);
   font-weight: bold;
   font-size: 0.9rem;
   margin-left: 0.5rem;
-
 }
 nav .navContainer .btnContainer figure {
   width: 1.5rem;
@@ -111,31 +110,30 @@ main h1 {
   text-transform: uppercase;
   font-size: 2.5rem;
   letter-spacing: 0.25em;
-    text-align: center;
-
+  text-align: center;
 }
 main::before,
 main::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -1rem;
-    bottom: -1rem;
-    width: 10rem;
-    background-image: url(../images/icons/bg-lines.svg);
-    background-size: cover;
-    background-position: right center;
-    z-index: -1;
-    opacity: 0.1;
-    height: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1rem;
+  bottom: -1rem;
+  width: 10rem;
+  background-image: url(../images/icons/bg-lines.svg);
+  background-size: cover;
+  background-position: right center;
+  z-index: -1;
+  opacity: 0.1;
+  height: 100%;
 }
 
 main::before {
-    left: 0;
+  left: 0;
 }
 main::after {
-    transform: scaleX(-1);
-    right: 0;
+  transform: scaleX(-1);
+  right: 0;
 }
 
 /* ------------------ cards --------------- */
@@ -202,8 +200,6 @@ main .cardsContainer .card .card-body p {
 }
 /*  ---------------------------------  footer -------------------------------*/
 footer {
-  
-
   width: 100%;
   height: 20rem;
   background-color: var(--mainColor);
@@ -226,12 +222,10 @@ footer .footerContainer .footer-text h5 {
   margin-bottom: 0.5rem;
 }
 footer .footerContainer .footer-text p {
-  color: #8ED8A9;
+  color: #8ed8a9;
   font-size: 0.9rem;
   text-align: justify;
-  word-spacing: .1em;
-  
-  
+  word-spacing: 0.1em;
 }
 footer .footerContainer a {
   width: 13rem;
@@ -240,52 +234,49 @@ footer hr {
   width: 10rem;
   border: 1.6px solid var(--card);
   margin: 1em auto;
-
 }
 /* ----------------------------------- responsive design -------------------------------- */
 @media screen and (min-width: 576px) {
-:root {
-  font-size: 14px;
-  --container-width: 90%;
-}
+  :root {
+    font-size: 14px;
+    --container-width: 90%;
+  }
 }
 @media screen and (min-width: 768px) {
-:root {
-  font-size: 14px;
-  --container-width: 80%;
-}
+  :root {
+    font-size: 14px;
+    --container-width: 80%;
+  }
 }
 @media screen and (min-width: 992px) {
-:root {
-  font-size: 16px;
-  --container-width: 75%;
-}
+  :root {
+    font-size: 16px;
+    --container-width: 75%;
+  }
 }
 @media screen and (min-width: 1200px) {
-:root {
-  font-size: 18px;
-  --container-width: 75%;
-}
+  :root {
+    font-size: 18px;
+    --container-width: 75%;
+  }
 }
 @media screen and (min-width: 1600px) {
-:root {
-  font-size: 18px;
-  --container-width: 65%;
-}
-
+  :root {
+    font-size: 18px;
+    --container-width: 65%;
+  }
 }
 @media screen and (max-width: 768px) {
-    footer{
+  footer {
     height: auto;
-    }
-    footer .footerContainer .footer-text {
+  }
+  footer .footerContainer .footer-text {
     text-align: center;
     width: 90%;
-    }
-    footer .footerContainer {
+  }
+  footer .footerContainer {
     flex-direction: column;
-    }
-
+  }
 }
 
 /*  ------------------------------------------------  form ----------------------------------------------*/
@@ -293,7 +284,6 @@ footer hr {
 main form .btnContainer figure {
   width: 1.2rem;
 }
-
 
 main form .form-control {
   width: 100%;
@@ -303,4 +293,3 @@ main form .form-control {
   border-radius: 0.5rem;
   background-color: var(--card);
 }
-

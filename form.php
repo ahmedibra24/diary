@@ -7,17 +7,68 @@ $stmt-> execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
+
+// Handle form submission
+
 if(!empty($_POST)) {
+// Retrieve and sanitize form inputs
   $title = (string) $_POST['title'] ?? '';
   $date = (string) $_POST['date'] ?? '';
   $message = (string) $_POST['message'] ?? '';
+  $imageName=null;
+// handle image upload
+    if (!empty($_FILES) && !empty($_FILES['image'])) {
+        if ($_FILES['image']['error'] === 0 && $_FILES['image']['size'] !== 0) {
+            $nameWithoutExtension = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
+            $name = preg_replace('/[^a-zA-Z0-9]/', '', $nameWithoutExtension);
+    
+            $originalImage = $_FILES['image']['tmp_name'];
+            $imageName = $name . '-' . time() . '.jpg';
+            $destImage = __DIR__ . '/uploads/' . $imageName;
+    
+            [$width, $height] = getimagesize($originalImage);
+    
+            $maxDim = 400;
 
-  $stmt = $pdo->prepare('INSERT INTO `entries`(`title`,`date`,`message`) VALUES
-  (:title,:date,:message)');
+            $scaleFactor = $maxDim / max($width, $height);
+            $newWidth = $width * $scaleFactor;
+            $newHeight = $height * $scaleFactor;
+    
+            $type = mime_content_type($originalImage);
+
+            
+
+            switch ($type) {
+                case 'image/jpeg':
+                    $im = @imagecreatefromjpeg($originalImage);
+                    break;
+                case 'image/png':
+                    $im = @imagecreatefrompng($originalImage);
+                    break;
+                case 'image/gif':
+                    $im = @imagecreatefromgif($originalImage);
+                    break;
+                default:
+                    die('Unsupported image type');
+            }
+
+    
+            $newImg = imagecreatetruecolor($newWidth, $newHeight);
+            imagecopyresampled($newImg, $im, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+    
+            imagejpeg($newImg, $destImage);
+            var_dump($imageName);
+        }
+    }
+
+// Insert into database
+  $stmt = $pdo->prepare('INSERT INTO `entries`(`title`,`date`,`message`,`image`) VALUES
+  (:title,:date,:message,:image)');
 
   $stmt->bindValue(':title',$title);
   $stmt->bindValue(':date',$date);
   $stmt->bindValue(':message',$message);
+  $stmt->bindValue(':image',$imageName);
   $stmt->execute();
 
   echo '<a href="index.php">Go to Entries</a>';
