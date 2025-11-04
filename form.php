@@ -25,39 +25,45 @@ if(!empty($_POST)) {
             $originalImage = $_FILES['image']['tmp_name'];
             $imageName = $name . '-' . time() . '.jpg';
             $destImage = __DIR__ . '/uploads/' . $imageName;
-    
-            [$width, $height] = getimagesize($originalImage);
-    
-            $maxDim = 400;
 
-            $scaleFactor = $maxDim / max($width, $height);
-            $newWidth = $width * $scaleFactor;
-            $newHeight = $height * $scaleFactor;
+            $imageSize = getimagesize($originalImage);
+            // handle error if image size is false or not valid image like (file.php)
+            if(!empty($imageSize)) {  
     
-            $type = mime_content_type($originalImage);
+              [$width, $height] = $imageSize;
+              
+              $maxDim = 400;
 
-            
+              $scaleFactor = $maxDim / max($width, $height);
+              $newWidth = $width * $scaleFactor;
+              $newHeight = $height * $scaleFactor;
+              
+              $type = mime_content_type($originalImage);
 
-            switch ($type) {
-                case 'image/jpeg':
-                    $im = @imagecreatefromjpeg($originalImage);
-                    break;
-                case 'image/png':
-                    $im = @imagecreatefrompng($originalImage);
-                    break;
-                case 'image/gif':
-                    $im = @imagecreatefromgif($originalImage);
-                    break;
-                default:
-                    die('Unsupported image type');
+
+              switch ($type) {
+                  case 'image/jpeg':
+                      $im = @imagecreatefromjpeg($originalImage);
+                      break;
+                  case 'image/png':
+                      $im = @imagecreatefrompng($originalImage);
+                      break;
+                  case 'image/gif':
+                      $im = @imagecreatefromgif($originalImage);
+                      break;
+                  default:
+                      die('Unsupported image type' . '<a href="index.php">Go to Entries</a>');
+              }
+
+              // handle error if image extension is not supported or image is corrupted
+              if(!empty($im)) {
+                  $newImg = imagecreatetruecolor($newWidth, $newHeight);
+                  imagecopyresampled($newImg, $im, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+                  imagejpeg($newImg, $destImage);
+                  var_dump($imageName);
+              }
             }
-
-    
-            $newImg = imagecreatetruecolor($newWidth, $newHeight);
-            imagecopyresampled($newImg, $im, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-    
-            imagejpeg($newImg, $destImage);
-            var_dump($imageName);
         }
     }
 
