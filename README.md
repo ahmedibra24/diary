@@ -4,28 +4,60 @@ A simple and effective personal journal application that helps users document th
 
 ---
 
-## 🚀 Features
+##  Features
 
-- Create and manage diary entries  
-- Clean and intuitive user interface  
-- Fully responsive design (works on all devices)  
-- Data persistence using MySQL database  
-- Smooth and simple journaling experience  
+- Create diary entries  
+- Clean and user-friendly interface  
+- Responsive design for all devices  
+- Data stored using MySQL database  
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - Native PHP  
 - MySQL  
 - JavaScript  
-- HTML5  
-- CSS3  
+- HTML  
+- CSS  
 
 ---
 
-## 📦 Installation
+##  Installation
 
 1. Clone the repository:
-```bash
-git clone https://github.com/your-username/personal-diary.git
+   git clone https://github.com/your-username/personal-diary.git
+
+2. Move the project to your local server (XAMPP / Laragon)
+
+3. Create a database and import the `.sql` file
+
+4. Update database credentials in config file
+
+5. Run in browser:
+   http://localhost/personal-diary
+
+---
+
+##  Usage
+
+- Add new diary entries  
+- View saved entries  
+
+---
+
+##  Screenshots
+
+![Home](./screenshots/cover.png)  
+![Entries](./screenshots/screen1.png)  
+![new Entry](./screenshots/screen2.png)  
+![database](./screenshots/database.png)  
+
+
+---
+
+## ⚡ Challenges Solved
+
+- Building a simple journaling UI  
+- Managing entries efficiently  
+- Saving and retrieving data from database  
